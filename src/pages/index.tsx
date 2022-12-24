@@ -4,6 +4,7 @@ import Navbar from "../components/layout/Navbar";
 import { authActions } from "../store/authSlice";
 import { useDispatch, useSelector } from "react-redux";
 import { AppState } from "../store/store";
+import RoundedBox from "../components/layout/RoundedBox";
 
 export default function Home() {
   const isAuth = useSelector((state: AppState) => state.auth.isAuth);
@@ -12,6 +13,7 @@ export default function Home() {
   const loginHandler = () => {
     dispatch(authActions.setAuthState(true));
   };
+
   return (
     <>
       <Head>
@@ -23,14 +25,24 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <main>
-        <h1 className="text-sm text-red-500">
-          Use this app to record your flow state!
-        </h1>
-        <h2>Use this app to record your flow state!</h2>
-        <h3>{isAuth ? "登入" : "未登入"}</h3>
-        <button onClick={loginHandler}>登入</button>
-      </main>
+      <div className="bg-[#84b2ad] w-full min-h-screen">
+        <Navbar />
+        <main className="flex justify-center h-full gap-x-24">
+          <div className="flex flex-col w-1/5 gap-y-6">
+            <RoundedBox title="Timer" className="h-[20vh]">
+              this is timer
+            </RoundedBox>
+            <RoundedBox title="Todos" className="h-[50vh]">
+              this is Todos
+            </RoundedBox>
+          </div>
+          <div className="flex flex-col w-1/3">
+            <RoundedBox title="時間紀錄" className="min-h-[60vh]">
+              <div>{/* record list... */}</div>
+            </RoundedBox>
+          </div>
+        </main>
+      </div>
     </>
   );
 }
