@@ -5,6 +5,9 @@ import { authActions } from "../store/authSlice";
 import { useDispatch, useSelector } from "react-redux";
 import { AppState } from "../store/store";
 import RoundedBox from "../components/layout/RoundedBox";
+import Stopwatch from "../components/stopwatch/Stopwatch";
+import TodoList from "../components/todoList/TodoList";
+import RecordChart from "../components/RecordChart/RecordChart";
 
 export default function Home() {
   const isAuth = useSelector((state: AppState) => state.auth.isAuth);
@@ -29,17 +32,11 @@ export default function Home() {
         <Navbar />
         <main className="flex justify-center h-full gap-x-24">
           <div className="flex flex-col w-1/5 gap-y-6">
-            <RoundedBox title="Timer" className="h-[20vh]">
-              this is timer
-            </RoundedBox>
-            <RoundedBox title="Todos" className="h-[50vh]">
-              this is Todos
-            </RoundedBox>
+            <Stopwatch />
+            <TodoList />
           </div>
           <div className="flex flex-col w-1/3">
-            <RoundedBox title="時間紀錄" className="min-h-[60vh]">
-              <div>{/* record list... */}</div>
-            </RoundedBox>
+            <RecordChart />
           </div>
         </main>
       </div>

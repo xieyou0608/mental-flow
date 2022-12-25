@@ -1,7 +1,7 @@
 import React from "react";
 
 type Props = {
-  title: string;
+  subheader: string;
   className: string | null;
   children: React.ReactNode;
 };
@@ -9,10 +9,10 @@ type Props = {
 const RoundedBox: React.FC<Props> = (props) => {
   return (
     <div
-      className={`w-full bg-teal-400 rounded-xl overflow-auto ${props.className}`}
+      className={`w-full bg-[#88D9CF] rounded-xl overflow-auto ${props.className}`}
     >
-      <header className="w-full bg-zinc-700 text-white text-center text-lg">
-        {props.title}
+      <header className="w-full bg-[#494E4D] text-white text-center text-xl">
+        {props.subheader}
       </header>
       {props.children}
     </div>
